@@ -1,0 +1,31 @@
+---
+import { reasons } from '../data/site';
+import Icon from './Icon.astro';
+---
+
+<section class="section" id="por-que" aria-labelledby="why-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Por qué N/D Service</p>
+      <h2 class="section-title" id="why-title">
+        La diferencia está en cómo se repara, no en que se repare
+      </h2>
+      <p class="section-sub">
+        No somos una página de la guía telefónica: son más de 10 años resolviendo fallas reales,
+        y cada trabajo se hace igual de bien que el primero.
+      </p>
+    </div>
+
+    <ul class="why-grid">
+      {
+        reasons.map((r) => (
+          <li class="why-card reveal">
+            <span class="why-icon"><Icon name={r.icon} size={22} /></span>
+            <h3>{r.title}</h3>
+            <p>{r.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

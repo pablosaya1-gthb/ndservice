@@ -1,0 +1,57 @@
+---
+import { testimonials } from '../data/site';
+import Icon from './Icon.astro';
+
+const initials = (name: string) =>
+  name
+    .split(' ')
+    .slice(0, 2)
+    .map((p) => p[0])
+    .join('')
+    .toUpperCase();
+---
+
+<section class="section testimonials" id="opiniones" aria-labelledby="testi-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Opiniones</p>
+      <h2 class="section-title" id="testi-title">Lo que dicen los clientes</h2>
+      <p class="section-sub">
+        No publicamos lo que no pasó: estas son reseñas reales que dejaron nuestros clientes en
+        Google.
+      </p>
+    </div>
+
+    <ul class="testi-grid">
+      {
+        testimonials.map((t) => (
+          <li class="testi-card reveal">
+            <span class="stars" role="img" aria-label="5 estrellas">
+              <Icon name="star" size={16} /><Icon name="star" size={16} /><Icon name="star" size={16} /><Icon name="star" size={16} /><Icon name="star" size={16} />
+            </span>
+            <blockquote>“{t.text}”</blockquote>
+            <footer>
+              <span class="avatar" aria-hidden="true">{initials(t.name)}</span>
+              <div>
+                <strong>{t.name}</strong>
+                <small>Reseña de Google</small>
+              </div>
+            </footer>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="testi-source">
+      Más opiniones y trabajos terminados en nuestro
+      <a
+        href="https://www.instagram.com/ndserviceoeste"
+        target="_blank"
+        rel="noopener"
+      >
+        Instagram
+      </a>
+      .
+    </p>
+  </div>
+</section>

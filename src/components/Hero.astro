@@ -1,0 +1,50 @@
+---
+import { waDefault } from '../data/site';
+import Icon from './Icon.astro';
+import MediaPlaceholder from './MediaPlaceholder.astro';
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Service técnico a domicilio · Zona Oeste, Norte, Sur y CABA</p>
+        <h1 id="hero-title">
+          Tu electrodoméstico dejó de funcionar. <span class="accent">Lo resolvemos.</span>
+        </h1>
+        <p class="hero-sub">
+          Reparación de lavarropas, secarropas, lavavajillas, microondas, hornos eléctricos y
+          anafes vitrocerámicos. Diagnóstico profesional en tu casa, presupuesto claro antes de
+          empezar y garantía según el trabajo realizado.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href={waDefault} target="_blank" rel="noopener">
+            <Icon name="whatsapp" /> Pedir visita por WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="#contacto">
+            <Icon name="chat" /> Cargar mi consulta
+          </a>
+        </div>
+        <ul class="hero-badges">
+          <li><Icon name="shield" size={20} /> +10 años de experiencia</li>
+          <li><Icon name="wrench" size={20} /> +1.200 servicios realizados</li>
+          <li><Icon name="check" size={20} /> +30 marcas reparadas</li>
+        </ul>
+      </div>
+
+      <div class="hero-media reveal">
+        <MediaPlaceholder
+          label="Foto real: técnico reparando un electrodoméstico a domicilio"
+          icon="wrench"
+          ratio="4 / 3"
+        />
+        <figure class="hero-card-rating">
+          <span class="stars" role="img" aria-label="5 estrellas en reseñas de Google">
+            <Icon name="star" size={16} /><Icon name="star" size={16} /><Icon name="star" size={16} /><Icon name="star" size={16} /><Icon name="star" size={16} />
+          </span>
+          <p><strong>Reseñas reales de clientes</strong><br />en Google</p>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>

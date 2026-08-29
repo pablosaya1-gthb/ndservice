@@ -1,0 +1,75 @@
+---
+import { site, services } from '../data/site';
+import Icon from './Icon.astro';
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src={site.logo} alt="N/D Service Reparaciones" width="176" height="44" loading="lazy" />
+        <p>
+          Servicio técnico y reparación de electrodomésticos a domicilio. Diagnóstico profesional,
+          repuestos de calidad y garantía según el trabajo realizado.
+        </p>
+        <div class="footer-social">
+          <a href={site.instagram} target="_blank" rel="noopener" aria-label="Instagram de N/D Service">
+            <Icon name="instagram" size={18} />
+          </a>
+          <a href={site.facebook} target="_blank" rel="noopener" aria-label="Facebook de N/D Service">
+            <Icon name="facebook" size={18} />
+          </a>
+        </div>
+      </div>
+
+      <nav aria-label="Servicios">
+        <h4>Servicios</h4>
+        <ul>
+          {services.map((s) => (
+            <li><a href={`#servicio-${s.id}`}>{s.name}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav aria-label="Secciones">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#como-trabajamos">Cómo trabajamos</a></li>
+          <li><a href="#por-que">Por qué N/D</a></li>
+          <li><a href="#cobertura">Zonas de atención</a></li>
+          <li><a href="#opiniones">Opiniones</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h4>Atención al público</h4>
+        <ul class="footer-hours">
+          {
+            site.hours.map((h) => (
+              <li>
+                <span>{h.days}</span>
+                <span>{h.time}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <ul style="margin-top: 14px;">
+          <li><a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a></li>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li>
+            <a href={site.mapsUrl} target="_blank" rel="noopener">{site.address}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <span>© 2026 N/D Service Reparaciones® · El Palomar, Buenos Aires</span>
+      <span>(✱) Garantía según el tipo de trabajo realizado.</span>
+    </div>
+  </div>
+</footer>

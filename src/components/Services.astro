@@ -1,0 +1,58 @@
+---
+import { services, waLink } from '../data/site';
+import Icon from './Icon.astro';
+import MediaPlaceholder from './MediaPlaceholder.astro';
+---
+
+<section class="section services" id="servicios" aria-labelledby="services-title">
+  <div class="container">
+    <h2 id="services-title" class="sr-only">Servicios de reparación por electrodoméstico</h2>
+
+    {
+      services.map((s, i) => (
+        <article class={`service ${i % 2 === 1 ? 'flip' : ''}`} id={`servicio-${s.id}`}>
+          <div class="container service-grid">
+            <div class="service-media reveal">
+              <MediaPlaceholder label={s.photoLabel} icon={s.icon} ratio="4 / 3" />
+            </div>
+
+            <div class="service-body reveal">
+              <span class="service-chip"><Icon name={s.icon} size={18} /> {s.name}</span>
+              <h3 class="service-name">{s.name}</h3>
+              <p class="service-tagline">{s.tagline}</p>
+
+              <p class="service-label" id={`faults-${s.id}`}>Fallas que atendemos</p>
+              <ul class="faults" aria-labelledby={`faults-${s.id}`}>
+                {s.faults.map((f) => (
+                  <li class="chip"><span class="dot" aria-hidden="true"></span>{f}</li>
+                ))}
+              </ul>
+
+              <p class="service-label" id={`approach-${s.id}`}>Cómo lo abordamos</p>
+              <ul class="approach" aria-labelledby={`approach-${s.id}`}>
+                {s.approach.map((a) => (
+                  <li><Icon name="check" size={17} /> <span>{a}</span></li>
+                ))}
+              </ul>
+
+              {
+                s.safety && (
+                  <p class="safety-note">
+                    <Icon name="bolt" size={18} />
+                    <span><strong>Aviso de seguridad</strong>{s.safety}</span>
+                  </p>
+                )
+              }
+
+              <div class="service-cta">
+                <a class="btn btn-wa" href={waLink(s.waMessage)} target="_blank" rel="noopener">
+                  <Icon name="whatsapp" /> Pedir visita por este equipo
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

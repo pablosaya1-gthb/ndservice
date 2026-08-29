@@ -1,0 +1,14 @@
+---
+import { waLink } from '../data/site';
+import Icon from './Icon.astro';
+---
+
+<a
+  class="wa-float"
+  href={waLink('Hola, quiero pedir una visita técnica.')}
+  target="_blank"
+  rel="noopener"
+  aria-label="Chatear por WhatsApp con N/D Service"
+>
+  <Icon name="whatsapp" size={30} />
+</a>

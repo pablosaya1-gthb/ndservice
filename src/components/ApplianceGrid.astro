@@ -1,0 +1,32 @@
+---
+import { services } from '../data/site';
+import Icon from './Icon.astro';
+---
+
+<section class="section pick" id="equipos" aria-labelledby="pick-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Elegí tu electrodoméstico</p>
+      <h2 class="section-title" id="pick-title">¿Qué equipo se rompió?</h2>
+      <p class="section-sub">
+        Si tu falla está en la lista, la trabajamos. Tocá tu equipo para ver los síntomas que
+        atendemos y cómo lo resolvemos.
+      </p>
+    </div>
+
+    <ul class="pick-grid">
+      {
+        services.map((s) => (
+          <li>
+            <a class="pick-card" href={`#servicio-${s.id}`}>
+              <span class="pick-icon"><Icon name={s.icon} size={30} /></span>
+              <h3>{s.name}</h3>
+              <p>{s.short}</p>
+              <span class="pick-more">Ver soluciones <Icon name="arrow" size={15} /></span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

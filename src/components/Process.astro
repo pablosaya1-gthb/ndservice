@@ -1,0 +1,36 @@
+---
+import { steps, waDefault, site } from '../data/site';
+import Icon from './Icon.astro';
+---
+
+<section class="section process" id="como-trabajamos" aria-labelledby="process-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">El recorrido, sin sorpresas</p>
+      <h2 class="section-title" id="process-title">Cómo trabajamos</h2>
+      <p class="section-sub">
+        De tu primer mensaje a la garantía: cuatro pasos, siempre sabiendo en qué estamos.
+      </p>
+    </div>
+
+    <ol class="steps-grid">
+      {
+        steps.map((st, i) => (
+          <li class="step-card reveal">
+            <span class="step-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <span class="step-icon"><Icon name={st.icon} size={24} /></span>
+            <h3>{st.title}</h3>
+            <p>{st.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <p class="process-note">
+      ¿Dudas en cualquier paso? Escribinos al{' '}
+      <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a> o{' '}
+      <a href={waDefault} target="_blank" rel="noopener">chateá por WhatsApp</a>: del otro lado
+      hay un técnico.
+    </p>
+  </div>
+</section>

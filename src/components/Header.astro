@@ -1,0 +1,42 @@
+---
+import { site, waDefault } from '../data/site';
+import Icon from './Icon.astro';
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="N/D Service Reparaciones — ir al inicio">
+      <img src={site.logo} alt="N/D Service Reparaciones" width="176" height="44" loading="eager" />
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+      <a href="#equipos">Servicios</a>
+      <a href="#como-trabajamos">Cómo trabajamos</a>
+      <a href="#por-que">Por qué N/D</a>
+      <a href="#cobertura">Cobertura</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#faq">Preguntas frecuentes</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href={`tel:${site.phoneTel}`} aria-label={`Llamar a N/D Service al ${site.phoneDisplay}`}>
+        <Icon name="phone" size={19} />
+        <span class="hide-sm">{site.phoneDisplay}</span>
+      </a>
+      <a class="btn btn-primary btn-sm" href={waDefault} target="_blank" rel="noopener">
+        <Icon name="whatsapp" size={18} />
+        <span class="btn-label">Pedir visita técnica</span>
+      </a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="main-nav"
+        aria-label="Abrir menú"
+      >
+        <Icon name="menu" size={22} />
+      </button>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,30 @@
+---
+import { faqs } from '../data/site';
+import Icon from './Icon.astro';
+---
+
+<section class="section" id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section-head" style="text-align: center;">
+      <p class="eyebrow" style="justify-content: center;">Antes de escribir</p>
+      <h2 class="section-title" id="faq-title">Preguntas frecuentes</h2>
+      <p class="section-sub" style="margin-inline: auto;">
+        Lo que todo el mundo pregunta antes de pedir la visita, respondido sin vueltas.
+      </p>
+    </div>
+
+    <div class="faq-list">
+      {
+        faqs.map((f) => (
+          <details class="faq-item">
+            <summary>
+              <span>{f.q}</span>
+              <Icon name="chevron" size={20} />
+            </summary>
+            <p class="faq-a">{f.a}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

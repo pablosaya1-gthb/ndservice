@@ -1,0 +1,18 @@
+---
+import { stats } from '../data/site';
+---
+
+<section class="stats-band" aria-label="Cifras de N/D Service">
+  <div class="container">
+    <div class="stats-grid">
+      {
+        stats.map((s) => (
+          <div class="reveal">
+            <div class="stat-value">{s.value}</div>
+            <div class="stat-label">{s.label}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

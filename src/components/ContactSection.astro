@@ -1,0 +1,124 @@
+---
+import { site, services, waLink } from '../data/site';
+import Icon from './Icon.astro';
+---
+
+<section class="section contact" id="contacto" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="eyebrow">Contacto</p>
+        <h2 class="section-title" id="contact-title">Pedí tu visita técnica</h2>
+        <p class="section-sub">
+          Elegí el canal que te resulte más cómodo. Dentro del horario de atención respondemos en
+          el momento, y si nos escribís afuera del horario, te devolvemos el contacto al
+          siguiente día hábil.
+        </p>
+
+        <ul class="contact-lines">
+          <li class="contact-line">
+            <span class="contact-icon"><Icon name="whatsapp" size={20} /></span>
+            <div>
+              <small>WhatsApp — respuesta más rápida</small>
+              <a href={waLink('Hola, quiero pedir una visita técnica.')} target="_blank" rel="noopener">
+                {site.phoneDisplay}
+              </a>
+            </div>
+          </li>
+          <li class="contact-line">
+            <span class="contact-icon"><Icon name="phone" size={20} /></span>
+            <div>
+              <small>Teléfono</small>
+              <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
+            </div>
+          </li>
+          <li class="contact-line">
+            <span class="contact-icon"><Icon name="mail" size={20} /></span>
+            <div>
+              <small>Email</small>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+            </div>
+          </li>
+          <li class="contact-line">
+            <span class="contact-icon"><Icon name="pin" size={20} /></span>
+            <div>
+              <small>Taller / punto de contacto</small>
+              <a href={site.mapsUrl} target="_blank" rel="noopener">{site.address}</a>
+            </div>
+          </li>
+          <li class="contact-line">
+            <span class="contact-icon"><Icon name="clock" size={20} /></span>
+            <div>
+              <small>Horarios de atención</small>
+              <strong>L–V 9 a 18 · Sáb 9 a 14</strong>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="contact-form-card reveal">
+        <form id="consult-form" data-whatsapp={site.whatsappNumber}>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-nombre">Nombre <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-nombre" name="nombre" type="text" autocomplete="name" required placeholder="Tu nombre" />
+            </div>
+            <div class="field">
+              <label for="f-telefono">Teléfono <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-telefono" name="telefono" type="tel" autocomplete="tel" required placeholder="Ej: 11 5555-5555" />
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-equipo">Equipo <span class="req" aria-hidden="true">*</span></label>
+              <select id="f-equipo" name="equipo" required>
+                <option value="" selected disabled>Elegí un equipo</option>
+                {services.map((s) => (
+                  <option value={s.name}>{s.name}</option>
+                ))}
+                <option value="Otro electrodoméstico">Otro electrodoméstico</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-zona">Zona</label>
+              <select id="f-zona" name="zona">
+                <option value="" selected disabled>Opcional</option>
+                <option>Zona Oeste</option>
+                <option>Zona Norte</option>
+                <option>Zona Sur</option>
+                <option>CABA</option>
+                <option>Otra zona</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-marca">Marca y modelo</label>
+            <input id="f-marca" name="marca" type="text" placeholder="Ej: Whirlpool WWD 1242" />
+          </div>
+
+          <div class="field">
+            <label for="f-sintoma">¿Qué está haciendo el equipo? <span class="req" aria-hidden="true">*</span></label>
+            <textarea
+              id="f-sintoma"
+              name="sintoma"
+              required
+              placeholder="Contanos qué pasa: no enciende, hace ruidos, pierde agua, un código de error… Cuanta más info, mejor atajamos."
+            ></textarea>
+          </div>
+
+          <button class="btn btn-wa btn-block" type="submit">
+            <Icon name="whatsapp" /> Enviar consulta por WhatsApp
+          </button>
+
+          <p class="form-note">
+            Al enviar se abre WhatsApp con tu consulta ya armada: sin formularios eternos, la
+            termina de cerrar el técnico que te atiende. ¿Sin WhatsApp? Escribinos a
+            <a href={`mailto:${site.email}`}>{site.email}</a>.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

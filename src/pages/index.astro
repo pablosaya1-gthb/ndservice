@@ -1,0 +1,166 @@
+---
+import '@fontsource-variable/sora';
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+
+import { site } from '../data/site';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ApplianceGrid from '../components/ApplianceGrid.astro';
+import Services from '../components/Services.astro';
+import Process from '../components/Process.astro';
+import WhyUs from '../components/WhyUs.astro';
+import Stats from '../components/Stats.astro';
+import Zones from '../components/Zones.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Faq from '../components/Faq.astro';
+import ContactSection from '../components/ContactSection.astro';
+import Footer from '../components/Footer.astro';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
+
+const description =
+  'Reparación de lavarropas, secarropas, lavavajillas, microondas, hornos eléctricos y anafes vitrocerámicos a domicilio en Zona Oeste, Zona Norte, Zona Sur y CABA. Diagnóstico profesional, presupuesto claro y garantía. Pedí tu visita técnica por WhatsApp.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': 'https://ndservicereparaciones.com.ar/#business',
+  name: site.name,
+  description,
+  url: 'https://ndservicereparaciones.com.ar/',
+  telephone: site.phoneTel,
+  email: site.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Int. Villegas 1308',
+    addressLocality: 'El Palomar',
+    addressRegion: 'Buenos Aires',
+    addressCountry: 'AR',
+  },
+  areaServed: ['Zona Oeste', 'Zona Norte', 'Zona Sur', 'CABA'],
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '09:00',
+      closes: '14:00',
+    },
+  ],
+  sameAs: [site.instagram, site.facebook],
+  priceRange: '$$',
+};
+---
+
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>N/D Service Reparaciones — Service técnico a domicilio en Zona Oeste, Norte, Sur y CABA</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0e2a47" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content="N/D Service Reparaciones — Service técnico a domicilio" />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://ndservicereparaciones.com.ar/" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:image" content="https://ndservicereparaciones.com.ar/logo.svg" />
+    <meta name="twitter:card" content="summary" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script>document.documentElement.classList.add('js');</script>
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">Saltar al contenido principal</a>
+    <Header />
+
+    <main id="main">
+      <Hero />
+      <ApplianceGrid />
+      <Services />
+      <Process />
+      <WhyUs />
+      <Stats />
+      <Zones />
+      <Testimonials />
+      <Faq />
+      <ContactSection />
+    </main>
+
+    <Footer />
+    <FloatingWhatsApp />
+
+    <script>
+      // Menú móvil
+      const header = document.querySelector('.site-header');
+      const toggle = document.querySelector('.nav-toggle');
+      toggle?.addEventListener('click', () => {
+        const open = header?.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(!!open));
+        toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      });
+      document.querySelectorAll('.main-nav a').forEach((a) =>
+        a.addEventListener('click', () => header?.classList.remove('open'))
+      );
+
+      // Sombra del header al scrollear
+      const onScroll = () => header?.classList.toggle('scrolled', window.scrollY > 8);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // Reveal on scroll (respetando prefers-reduced-motion)
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const revealEls = document.querySelectorAll('.reveal');
+      if (reduced || !('IntersectionObserver' in window)) {
+        revealEls.forEach((el) => el.classList.add('in'));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('in');
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+        );
+        revealEls.forEach((el) => io.observe(el));
+      }
+
+      // Formulario → arma el mensaje y lo envía a WhatsApp
+      const form = document.getElementById('consult-form');
+      if (form) {
+        const waNumber = form.dataset.whatsapp;
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (!form.reportValidity()) return;
+          const d = new FormData(form);
+          const v = (k) => String(d.get(k) ?? '').trim();
+          const lines = [
+            'Hola, soy ' + v('nombre') + '. Quiero pedir una visita técnica.',
+            'Equipo: ' + v('equipo') + (v('marca') ? ' (' + v('marca') + ')' : '') + '.',
+            v('sintoma') ? 'Síntoma: ' + v('sintoma') + '.' : '',
+            v('zona') ? 'Zona: ' + v('zona') + '.' : '',
+            'Teléfono de contacto: ' + v('telefono') + '.',
+          ].filter(Boolean);
+          window.open(
+            'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(lines.join('\n')),
+            '_blank',
+            'noopener'
+          );
+        });
+      }
+    </script>
+  </body>
+</html>
