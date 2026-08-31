@@ -1,5 +1,6 @@
 ---
 import { site, services } from '../data/site';
+import { base } from '../data/base';
 import Icon from './Icon.astro';
 ---
 
@@ -7,7 +8,7 @@ import Icon from './Icon.astro';
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src={site.logo} alt="N/D Service Reparaciones" width="176" height="44" loading="lazy" />
+        <img src={`${base}/${site.logo}`} alt="N/D Service Reparaciones" width="176" height="44" loading="lazy" />
         <p>
           Servicio técnico y reparación de electrodomésticos a domicilio. Diagnóstico profesional,
           repuestos de calidad y garantía según el trabajo realizado.

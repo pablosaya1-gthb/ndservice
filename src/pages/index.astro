@@ -4,6 +4,7 @@ import '@fontsource-variable/inter';
 import '../styles/global.css';
 
 import { site } from '../data/site';
+import { base } from '../data/base';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import ApplianceGrid from '../components/ApplianceGrid.astro';
@@ -65,7 +66,7 @@ const jsonLd = {
     <title>N/D Service Reparaciones — Service técnico a domicilio en Zona Oeste, Norte, Sur y CABA</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <meta name="theme-color" content="#0e2a47" />
 
     <meta property="og:type" content="website" />

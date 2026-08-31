@@ -18,8 +18,10 @@ export const site = {
     'https://www.google.com/maps/search/?api=1&query=Int.+Villegas+1308%2C+El+Palomar%2C+Buenos+Aires',
   instagram: 'https://www.instagram.com/ndserviceoeste',
   facebook: 'https://www.facebook.com/share/igjJvBL6mvXGydXa/',
-  logo: '/logo.svg', // (PENDIENTE) reemplazar por /logo.png con el logo oficial
-  map: '/mapa-zonas.svg',
+  // Nombres de asset en public/ — los componentes los prefijan con Astro.base
+  // para funcionar en la raíz (dev) y en el subpath de GitHub Pages (prod).
+  logo: 'logo.svg', // (PENDIENTE) reemplazar por logo.png con el logo oficial
+  map: 'mapa-zonas.svg',
   hours: [
     { days: 'Lunes a viernes', time: '9:00 a 18:00 hs' },
     { days: 'Sábados', time: '9:00 a 14:00 hs' },

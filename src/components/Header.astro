@@ -1,12 +1,13 @@
 ---
 import { site, waDefault } from '../data/site';
+import { base } from '../data/base';
 import Icon from './Icon.astro';
 ---
 
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="#top" aria-label="N/D Service Reparaciones — ir al inicio">
-      <img src={site.logo} alt="N/D Service Reparaciones" width="176" height="44" loading="eager" />
+      <img src={`${base}/${site.logo}`} alt="N/D Service Reparaciones" width="176" height="44" loading="eager" />
     </a>
 
     <nav class="main-nav" id="main-nav" aria-label="Navegación principal">

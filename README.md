@@ -45,6 +45,24 @@ Todo el texto, teléfonos, zonas, fallas por equipo, FAQs, opiniones y cifras se
 
 ## Despliegue
 
+### GitHub Pages (referencia pública)
+
+El sitio está publicado en **https://pablosaya1-gthb.github.io/ndservice/**
+(Pages configura: rama `arena/01a04e25-ndservice`, carpeta `/`).
+
+```bash
+./deploy.sh "mensaje opcional"   # build + copia a la raíz + commit + push
+```
+
+Notas:
+- `deploy.sh` sincroniza `dist/` a la **raíz de la rama** (GitHub Pages sirve desde `/`).
+- El archivo `.nojekyll` (en `public/`) es **obligatorio**: sin él GitHub corre Jekyll
+  sobre los archivos y el build falla ("Page build failed").
+- Si en algún momento se cambia la carpeta de Pages a `/dist`, alcanza con committear
+  `dist/` (no hace falta la copia a la raíz).
+
+### Otro hosting
+
 El build genera HTML/CSS/JS estáticos en `dist/`. Cualquier hosting estático sirve:
 Vercel, Netlify, Cloudflare Pages o subir `dist/` al hosting actual de WordPress
 (recomendado: dominio nuevo o subcarpeta y redirección 301 de la home vieja).

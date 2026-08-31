@@ -1,5 +1,6 @@
 ---
 import { zones, site, waLink } from '../data/site';
+import { base } from '../data/base';
 import Icon from './Icon.astro';
 ---
 
@@ -41,7 +42,7 @@ import Icon from './Icon.astro';
 
       <figure class="zones-map reveal" style="margin: 0;">
         <img
-          src={site.map}
+          src={`${base}/${site.map}`}
           alt="Mapa esquemático de cobertura: Zona Oeste hasta Moreno y San Miguel, Zona Norte hasta Tigre, Zona Sur hasta Canning y Quilmes, y CABA, con base de operaciones en El Palomar"
           width="640"
           height="560"
