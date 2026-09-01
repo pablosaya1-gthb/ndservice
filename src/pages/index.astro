@@ -3,7 +3,7 @@ import '@fontsource-variable/sora';
 import '@fontsource-variable/inter';
 import '../styles/global.css';
 
-import { site } from '../data/site';
+import { site, services } from '../data/site';
 import { base } from '../data/base';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
@@ -20,15 +20,20 @@ import Footer from '../components/Footer.astro';
 import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
 
 const description =
-  'Reparación de lavarropas, secarropas, lavavajillas, microondas, hornos eléctricos y anafes vitrocerámicos a domicilio en Zona Oeste, Zona Norte, Zona Sur y CABA. Diagnóstico profesional, presupuesto claro y garantía. Pedí tu visita técnica por WhatsApp.';
+  'Reparamos lavarropas, secarropas, lavavajillas, microondas, hornos y anafes a domicilio en Zona Oeste, Norte, Sur y CABA. Pedí tu visita por WhatsApp.';
+
+// Origen completo del sitio (origin + path del subpath), sin barra final.
+// Se actualiza solo al cambiar `site` en astro.config.mjs.
+const siteOrigin = (Astro.site?.href ?? 'https://pablosaya1-gthb.github.io/ndservice').replace(/\/$/, '');
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': 'https://ndservicereparaciones.com.ar/#business',
+  '@id': `${siteOrigin}/#business`,
   name: site.name,
   description,
-  url: 'https://ndservicereparaciones.com.ar/',
+  url: siteOrigin,
+  image: `${siteOrigin}/og-image.png`,
   telephone: site.phoneTel,
   email: site.email,
   address: {
@@ -55,6 +60,18 @@ const jsonLd = {
   ],
   sameAs: [site.instagram, site.facebook],
   priceRange: '$$',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Reparación de electrodomésticos a domicilio',
+    itemListElement: services.map((s) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: `Reparación de ${s.name.toLowerCase()}`,
+        areaServed: 'Argentina',
+      },
+    })),
+  },
 };
 ---
 
@@ -63,20 +80,23 @@ const jsonLd = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>N/D Service Reparaciones — Service técnico a domicilio en Zona Oeste, Norte, Sur y CABA</title>
+    <title>Service de electrodomésticos a domicilio | N/D Service</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={`${siteOrigin}/`} />
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <meta name="theme-color" content="#0e2a47" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
-    <meta property="og:title" content="N/D Service Reparaciones — Service técnico a domicilio" />
+    <meta property="og:title" content="Service de electrodomésticos a domicilio | N/D Service" />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content="https://ndservicereparaciones.com.ar/" />
+    <meta property="og:url" content={siteOrigin} />
     <meta property="og:locale" content="es_AR" />
-    <meta property="og:image" content="https://ndservicereparaciones.com.ar/logo.svg" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={`${siteOrigin}/og-image.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <script>document.documentElement.classList.add('js');</script>
