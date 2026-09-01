@@ -1515,8 +1515,31 @@ button {
   transform: none;
 }
 
-/* ---------- Movimiento reducido ---------- */
-@media (prefers-reduced-motion: reduce) {
+/* ---------- Hardening mobile (320px, safe-area, wrap) ---------- */
+html,
+body {
+  overflow-x: clip;
+}
+
+.wa-float {
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  right: calc(18px + env(safe-area-inset-right, 0px));
+}
+
+.contact-line a,
+.contact-line strong {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 400px) {
+  /* En pantallas muy angostas el teléfono ya está en contacto/footer;
+     se priorizan el CTA de WhatsApp y el menú. */
+  .header-phone {
+    display: none;
+  }
+}
+
+/* ---------- Movimiento reducido ---------- */@media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
