@@ -1561,3 +1561,22 @@ body {
     display: none;
   }
 }
+
+/* ---------- Video de fondo del hero (subtil, bajo el contenido) ---------- */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.16;
+  z-index: 0;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(115% 125% at 50% 42%, #000 30%, transparent 78%);
+  mask-image: radial-gradient(115% 125% at 50% 42%, #000 30%, transparent 78%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    display: none;
+  }
+}

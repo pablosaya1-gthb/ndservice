@@ -122,6 +122,13 @@ const jsonLd = {
     <FloatingWhatsApp />
 
     <script>
+      // Video de fondo del hero: si el usuario prefiere menos movimiento, se retira
+      // del DOM (no descarga datos de video)
+      const heroVideo = document.querySelector('.hero-video');
+      if (heroVideo && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        heroVideo.remove();
+      }
+
       // Menú móvil
       const header = document.querySelector('.site-header');
       const toggle = document.querySelector('.nav-toggle');
