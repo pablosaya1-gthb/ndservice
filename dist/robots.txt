@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://pablosaya1-gthb.github.io/ndservice/sitemap-index.xml
