@@ -596,8 +596,15 @@ button {
   width: 52px;
   height: 52px;
   border-radius: 14px;
-  background: #eef4fb;
+  background: #fff;
+  border: 1px solid var(--line);
   color: var(--ink);
+}
+
+.pick-icon img {
+  width: 34px;
+  height: 34px;
+  display: block;
 }
 
 .pick-card h3 {
@@ -1606,4 +1613,25 @@ body {
   .hero-video {
     display: none;
   }
+}
+
+/* ---------- Icono a color del electrodoméstico en el marco de foto ---------- */
+.media-ph-badge {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 116px;
+  height: 116px;
+  border-radius: 26px;
+  background: linear-gradient(160deg, #ffffff 0%, #eef4fb 100%);
+  box-shadow:
+    0 20px 40px -18px rgba(3, 15, 30, 0.7),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+.media-ph-badge img {
+  width: 76px;
+  height: 76px;
+  display: block;
 }

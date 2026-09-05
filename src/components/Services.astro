@@ -13,7 +13,7 @@ import MediaPlaceholder from './MediaPlaceholder.astro';
         <article class={`service ${i % 2 === 1 ? 'flip' : ''}`} id={`servicio-${s.id}`}>
           <div class="container service-grid">
             <div class="service-media reveal">
-              <MediaPlaceholder label={s.photoLabel} icon={s.icon} ratio="4 / 3" />
+              <MediaPlaceholder label={s.photoLabel} icon={s.icon} iconFile={s.iconFile} ratio="4 / 3" />
             </div>
 
             <div class="service-body reveal">

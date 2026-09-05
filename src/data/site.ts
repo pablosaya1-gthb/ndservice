@@ -61,6 +61,7 @@ export const services: Service[] = [
     id: 'lavarropas',
     name: 'Lavarropas',
     icon: 'washing',
+    iconFile: 'icons/lavarropas.svg',
     short: 'No desagota · No centrifuga · Hace ruidos',
     tagline:
       'El equipo que más se pone en reparar. Si no desagota, no centrifuga o hace ruidos extraños, sabemos qué mirar primero.',
@@ -88,6 +89,7 @@ export const services: Service[] = [
     id: 'secarropas',
     name: 'Secarropas',
     icon: 'dryer',
+    iconFile: 'icons/secarropas.svg',
     short: 'No calienta · No gira · No seca bien',
     tagline:
       'Cuando no calienta o la ropa sale húmeda, la falla tiene nombre: la gran mayoría se diagnostica en la misma visita.',
@@ -112,6 +114,7 @@ export const services: Service[] = [
     id: 'lavavajillas',
     name: 'Lavavajillas',
     icon: 'dishwasher',
+    iconFile: 'icons/lavavajillas.svg',
     short: 'No enciende · Platos mojados o sucios · Fugas',
     tagline:
       'Que la vajilla vuelva a salir limpia y seca: trabajamos desde la bomba de agua hasta la resistencia.',
@@ -137,6 +140,7 @@ export const services: Service[] = [
     id: 'microondas',
     name: 'Microondas',
     icon: 'microwave',
+    iconFile: 'icons/microondas.svg',
     short: 'No calienta · Olor a quemado · Chispazos',
     tagline:
       'Del fusible de alta tensión al magnetrón: lo diagnosticamos a fondo para que vuelva a calentar seguro.',
@@ -161,6 +165,7 @@ export const services: Service[] = [
     id: 'horno-electrico',
     name: 'Horno eléctrico',
     icon: 'oven',
+    iconFile: 'icons/horno-electrico.svg',
     short: 'No calienta · Calienta irregular · Termostato',
     tagline:
       'El corazón de la cocina, de vuelta: reparamos elementos, termostatos y fallas eléctricas verificando la seguridad antes de cerrar.',
@@ -185,6 +190,7 @@ export const services: Service[] = [
     id: 'anafe-vitroceramico',
     name: 'Anafe vitrocerámico',
     icon: 'cooktop',
+    iconFile: 'icons/anafe-vitroceramico.svg',
     short: 'No enciende · Táctil que no responde · Calienta mal',
     tagline:
       'Un equipo delicado que no se le deja a improvisados: diagnóstico de placa y zonas de potencia, con el cuidado que merece.',

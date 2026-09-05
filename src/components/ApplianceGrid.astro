@@ -1,5 +1,8 @@
 ---
+// Grid rápido de electrodomésticos: lleva al ancla de cada servicio.
+// Usa el icono a color (public/icons/) cuando el servicio lo define.
 import { services } from '../data/site';
+import { base } from '../data/base';
 import Icon from './Icon.astro';
 ---
 
@@ -19,7 +22,23 @@ import Icon from './Icon.astro';
         services.map((s) => (
           <li>
             <a class="pick-card" href={`#servicio-${s.id}`}>
-              <span class="pick-icon"><Icon name={s.icon} size={30} /></span>
+              <span class="pick-icon">
+                {
+                  s.iconFile ? (
+                    <img
+                      src={base + '/' + s.iconFile}
+                      width="32"
+                      height="32"
+                      alt=""
+                      aria-hidden="true"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <Icon name={s.icon} size={30} />
+                  )
+                }
+              </span>
               <h3>{s.name}</h3>
               <p>{s.short}</p>
               <span class="pick-more">Ver soluciones <Icon name="arrow" size={15} /></span>
