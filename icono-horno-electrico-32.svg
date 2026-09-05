@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-label="Horno eléctrico">
+  <title>Horno eléctrico</title>
+  <!-- cuerpo -->
+  <rect x="4" y="3" width="24" height="25" rx="3" fill="#eef4fb" stroke="#0e2a47" stroke-width="1.5"/>
+  <!-- tablero superior -->
+  <line x1="4" y1="9.5" x2="28" y2="9.5" stroke="#0e2a47" stroke-width="1.5"/>
+  <circle cx="8" cy="6.25" r="1.75" fill="#0e2a47"/>
+  <circle cx="12.5" cy="6.25" r="1.75" fill="#0e2a47"/>
+  <circle cx="21" cy="6.25" r="1.25" fill="#0e2a47" opacity="0.35"/>
+  <circle cx="25" cy="6.25" r="1.5" fill="#f97316"/>
+  <!-- puerta -->
+  <rect x="6.5" y="11.5" width="19" height="14.5" rx="1.5" fill="#ffffff" stroke="#0e2a47" stroke-width="1.3"/>
+  <!-- tirador -->
+  <line x1="8.5" y1="13.4" x2="23.5" y2="13.4" stroke="#0e2a47" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- ventana -->
+  <rect x="9" y="15.5" width="14" height="8" rx="1" fill="#d8e7f7"/>
+  <!-- resistencia incandescente -->
+  <path d="M10.5 19.5c0.8-1.6 1.7-1.6 2.5 0s1.7 1.6 2.5 0 1.7-1.6 2.5 0 1.7 1.6 2.5 0" fill="none" stroke="#f97316" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- patas -->
+  <rect x="7" y="28" width="3" height="2" rx="1" fill="#0e2a47"/>
+  <rect x="22" y="28" width="3" height="2" rx="1" fill="#0e2a47"/>
+</svg>
