@@ -20,6 +20,7 @@ import MediaPlaceholder from './MediaPlaceholder.astro';
               <span class="service-chip"><Icon name={s.icon} size={18} /> {s.name}</span>
               <h3 class="service-name">{s.name}</h3>
               <p class="service-tagline">{s.tagline}</p>
+              <p class="service-intro">{s.intro}</p>
 
               <p class="service-label" id={`faults-${s.id}`}>Fallas que atendemos</p>
               <ul class="faults" aria-labelledby={`faults-${s.id}`}>

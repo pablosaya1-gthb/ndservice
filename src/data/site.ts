@@ -49,6 +49,7 @@ export interface Service {
   icon: string;
   short: string; // síntesis de fallas para la tarjeta rápida
   tagline: string;
+  intro: string; // párrafo de fondo por equipo (marcas, alcance, método)
   faults: string[];
   approach: string[];
   safety?: string;
@@ -65,6 +66,8 @@ export const services: Service[] = [
     short: 'No desagota · No centrifuga · Hace ruidos',
     tagline:
       'El equipo que más se pone en reparar. Si no desagota, no centrifuga o hace ruidos extraños, sabemos qué mirar primero.',
+    intro:
+      'Reparación de lavarropas automáticos y semiautomáticos de cualquier marca: Whirlpool, LG, Samsung, MPM, Indelca y otras. En cada visita separamos la falla eléctrica de la mecánica con mediciones, para que sepas exactamente qué se cambia y por qué.',
     faults: [
       'No enciende',
       'No carga agua',
@@ -93,6 +96,8 @@ export const services: Service[] = [
     short: 'No calienta · No gira · No seca bien',
     tagline:
       'Cuando no calienta o la ropa sale húmeda, la falla tiene nombre: la gran mayoría se diagnostica en la misma visita.',
+    intro:
+      'Service de secarropas a domicilio para todo tipo de fallas: no calienta, no gira, se apaga solo o la ropa sale húmeda. Revisamos calefactor, termistor, sensor de humedad y motor, y la mayoría de los casos se resuelven en la misma visita.',
     faults: [
       'No calienta',
       'No gira',
@@ -118,6 +123,8 @@ export const services: Service[] = [
     short: 'No enciende · Platos mojados o sucios · Fugas',
     tagline:
       'Que la vajilla vuelva a salir limpia y seca: trabajamos desde la bomba de agua hasta la resistencia.',
+    intro:
+      'Atendemos reparación de lavavajillas de toda marca: bombas de agua, boquillas de aspersión, resistencia y electrónica. El diagnóstico se hace en tu casa, con presupuesto cerrado antes de tocar nada.',
     faults: [
       'No enciende',
       'Platos que salen mojados',
@@ -144,6 +151,8 @@ export const services: Service[] = [
     short: 'No calienta · Olor a quemado · Chispazos',
     tagline:
       'Del fusible de alta tensión al magnetrón: lo diagnosticamos a fondo para que vuelva a calentar seguro.',
+    intro:
+      'El microondas trabaja con alto voltaje: por eso el diagnóstico se hace en orden, de lo más común a lo más complejo (fusible, condensador, diodo, puente, magnetrón), con herramienta adecuada y protocolo de seguridad.',
     faults: [
       'No calienta',
       'Olor a quemado',
@@ -169,6 +178,8 @@ export const services: Service[] = [
     short: 'No calienta · Calienta irregular · Termostato',
     tagline:
       'El corazón de la cocina, de vuelta: reparamos elementos, termostatos y fallas eléctricas verificando la seguridad antes de cerrar.',
+    intro:
+      'Service técnico de hornos eléctricos empotrados y de barra: elemento calefactor, termostato, encendido y conexiones. Verificamos la seguridad eléctrica antes de cerrar cada reparación y te contamos qué se midió y qué se cambió.',
     faults: [
       'No calienta',
       'Calienta de forma irregular',
@@ -194,6 +205,8 @@ export const services: Service[] = [
     short: 'No enciende · Táctil que no responde · Calienta mal',
     tagline:
       'Un equipo delicado que no se le deja a improvisados: diagnóstico de placa y zonas de potencia, con el cuidado que merece.',
+    intro:
+      'Reparación de anafes vitrocerámicos y de inducción: se revisa la placa electrónica y cada zona de potencia por separado, con procedimientos específicos para superficies de vidrio. Es un equipo donde el primer intento cuenta.',
     faults: [
       'No enciende',
       'Control táctil que no responde',
@@ -275,6 +288,11 @@ export const zones = [
   { name: 'Zona Sur', detail: 'hasta Canning / Quilmes' },
   { name: 'CABA', detail: 'toda la ciudad' },
 ];
+
+// Barrios y partidos dentro de la cobertura declarada (texto visible para
+// búsquedas de largo alcance: "service de lavarropas + barrio").
+export const districts =
+  'El Palomar, San Miguel, José C. Paz, Hurlingham, Moreno, Tres de Febrero, Vicente López, San Isidro, San Fernando, Tigre, Quilmes, Berazategui, Canning y toda la Ciudad de Buenos Aires.';
 
 export const testimonials = [
   {

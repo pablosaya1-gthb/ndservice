@@ -1,5 +1,5 @@
 ---
-import { zones, site, waLink } from '../data/site';
+import { zones, districts, site, waLink } from '../data/site';
 import { base } from '../data/base';
 import Icon from './Icon.astro';
 ---
@@ -29,6 +29,10 @@ import Icon from './Icon.astro';
             ))
           }
         </ul>
+
+        <p class="zones-districts">
+          <strong>Trabajamos en:</strong> {districts}
+        </p>
 
         <div class="zones-note">
           <p>

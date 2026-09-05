@@ -1635,3 +1635,19 @@ body {
   height: 76px;
   display: block;
 }
+
+/* ---------- Texto de fondo por servicio (marcas, alcance, método) ---------- */
+.service-intro {
+  margin: 10px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ---------- Barrios y partidos de cobertura ---------- */
+.zones-districts {
+  margin: 16px 0 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
