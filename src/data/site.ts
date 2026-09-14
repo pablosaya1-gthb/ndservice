@@ -54,6 +54,8 @@ export interface Service {
   approach: string[];
   safety?: string;
   photoLabel: string;
+  photo?: string; // foto real en public/ (relativa, ej: 'fotos/reparacion-microondas.jpg')
+  photoAlt?: string;
   waMessage: string;
 }
 
