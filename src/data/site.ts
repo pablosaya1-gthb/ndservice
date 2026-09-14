@@ -294,18 +294,52 @@ export const zones = [
 export const districts =
   'El Palomar, San Miguel, José C. Paz, Hurlingham, Moreno, Tres de Febrero, Vicente López, San Isidro, San Fernando, Tigre, Quilmes, Berazategui, Canning y toda la Ciudad de Buenos Aires.';
 
+// Total de reseñas en el perfil de Google (para el resumen; el link lleva al
+// perfil para verlas todas).
+export const googleReviewsCount = 22;
+
+// Reseñas reales capturadas del perfil de Google (oct 2024). El texto no se
+// edita: es exactamente lo que escribió cada cliente.
 export const testimonials = [
   {
+    name: 'Thiago 765 Lopéz',
+    date: '10 oct 2024',
+    text: 'Excelente trabajo y a un precio accesible súper recomendables',
+  },
+  {
+    name: 'Hector Arce',
+    date: '9 oct 2024',
+    text: 'La verdad es un buen servicio que brindan, cuento mi experiencia, vinieron a mi domicilio me retiraron el equipo y lo trajeron funcionando muy recomendable gracias',
+  },
+  {
+    name: 'Ivana Ferreyra',
+    date: '9 oct 2024',
+    text: 'Excelente servicio gracias por tu trabajo, muy recomendable me quedo super mi lava ropas',
+  },
+  {
+    name: 'Florencia Sayago',
+    date: '9 oct 2024',
+    text: 'Super profesionales y resuelven todo rapidísimo !! Muy recomendable',
+  },
+  {
+    name: 'Sabrina Guillermaz',
+    date: '9 oct 2024',
+    text: 'Excelente atencion.. responsable!! Super recomendable!! Muchas gracias por tu servicio.',
+  },
+  {
     name: 'Sabrina Escobar',
-    text: 'Excelente atención, responsable. Súper recomendable. Muchas gracias por tu servicio.',
+    date: '9 oct 2024',
+    text: 'Excelente servicio. Lo recomiendo!!',
   },
   {
     name: 'Nahuel Cardozo',
-    text: 'Excelente servicio. Lo recomiendo.',
+    date: '9 oct 2024',
+    text: 'Excelente servicio, súper profesionales y recomendables!',
   },
   {
     name: 'Cecilia Guillermaz',
-    text: 'Excelente trabajo. Los recomiendo, todo impecable. Me solucionaron el problema de mi lavarropas.',
+    date: '9 oct 2024',
+    text: 'Excelente trabajo!!! Los recomiendo, todo impecable.. Me solucionaron el problema de mi lavarropas.',
   },
 ];
 

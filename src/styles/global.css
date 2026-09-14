@@ -1055,6 +1055,37 @@ button {
   gap: 18px;
 }
 
+/* Resumen del perfil de Google (estrellas + EXCELENTE + total de reseñas) */
+.testi-summary {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+
+.testi-summary .stars {
+  gap: 4px;
+}
+
+.testi-summary-title {
+  color: var(--ink);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.testi-summary-count {
+  color: var(--muted);
+}
+
+@media (min-width: 1100px) {
+  .testi-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .testi-card {
   background: var(--paper);
   border: 1px solid var(--line);

@@ -1,5 +1,5 @@
 ---
-import { testimonials } from '../data/site';
+import { testimonials, googleReviewsCount } from '../data/site';
 import Icon from './Icon.astro';
 
 const initials = (name: string) =>
@@ -9,6 +9,10 @@ const initials = (name: string) =>
     .map((p) => p[0])
     .join('')
     .toUpperCase();
+
+// Busca el perfil de Google Business del negocio (muestra las reseñas totales).
+const googleProfileUrl =
+  'https://www.google.com/maps/search/?api=1&query=N/D+Service+Reparaciones+El+Palomar';
 ---
 
 <section class="section testimonials" id="opiniones" aria-labelledby="testi-title">
@@ -22,19 +26,29 @@ const initials = (name: string) =>
       </p>
     </div>
 
+    <div class="testi-summary">
+      <span class="stars" role="img" aria-label="5 estrellas">
+        <Icon name="star" size={20} /><Icon name="star" size={20} /><Icon name="star" size={20} />
+        <Icon name="star" size={20} /><Icon name="star" size={20} />
+      </span>
+      <span class="testi-summary-title">EXCELENTE</span>
+      <span class="testi-summary-count">Basado en {googleReviewsCount} reseñas en Google</span>
+    </div>
+
     <ul class="testi-grid">
       {
         testimonials.map((t) => (
           <li class="testi-card reveal">
             <span class="stars" role="img" aria-label="5 estrellas">
-              <Icon name="star" size={16} /><Icon name="star" size={16} /><Icon name="star" size={16} /><Icon name="star" size={16} /><Icon name="star" size={16} />
+              <Icon name="star" size={16} /><Icon name="star" size={16} /><Icon name="star" size={16} />
+              <Icon name="star" size={16} /><Icon name="star" size={16} />
             </span>
             <blockquote>“{t.text}”</blockquote>
             <footer>
               <span class="avatar" aria-hidden="true">{initials(t.name)}</span>
               <div>
                 <strong>{t.name}</strong>
-                <small>Reseña de Google</small>
+                <small>Reseña de Google · {t.date}</small>
               </div>
             </footer>
           </li>
@@ -43,12 +57,11 @@ const initials = (name: string) =>
     </ul>
 
     <p class="testi-source">
-      Más opiniones y trabajos terminados en nuestro
-      <a
-        href="https://www.instagram.com/ndserviceoeste"
-        target="_blank"
-        rel="noopener"
-      >
+      <a href={googleProfileUrl} target="_blank" rel="noopener">
+        Ver las {googleReviewsCount} reseñas en Google
+      </a>
+      · Trabajos terminados en nuestro
+      <a href="https://www.instagram.com/ndserviceoeste" target="_blank" rel="noopener">
         Instagram
       </a>
       .
