@@ -36,11 +36,11 @@ export const waDefault = waLink(
   'Hola, quiero pedir una visita técnica para mi electrodoméstico.'
 );
 
-export const stats = [
-  { value: '10+', label: 'años de experiencia' },
-  { value: '1.500+', label: 'servicios realizados' },
-  { value: '1.700+', label: 'visitas técnicas' },
-  { value: '30+', label: 'marcas reparadas' },
+export const stats: { value: string; label: string; icon?: 'wrench' | 'clock' | 'pin' | 'tag' }[] = [
+  { value: '10+', label: 'años de experiencia', icon: 'clock' },
+  { value: '1.500+', label: 'servicios realizados', icon: 'wrench' },
+  { value: '1.700+', label: 'visitas técnicas', icon: 'pin' },
+  { value: '30+', label: 'marcas reparadas', icon: 'tag' },
 ];
 
 export interface Service {

@@ -32,7 +32,57 @@ import { stats } from '../data/site';
         stats
           .filter((s) => s.label !== 'servicios realizados')
           .map((s) => (
-            <div class="reveal">
+            <div class="reveal stat-cell">
+              <span class={`stat-icon-badge stat-icon-${s.icon}`} aria-hidden="true">
+                {s.icon === 'clock' && (
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="8.5" />
+                    <path d="M12 12 8.8 10.4" />
+                    <path class="clock-hand" d="M12 12V6.5" />
+                  </svg>
+                )}
+                {s.icon === 'pin' && (
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                )}
+                {s.icon === 'tag' && (
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+                    />
+                    <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+                  </svg>
+                )}
+              </span>
               <div class="stat-value">{s.value}</div>
               <div class="stat-label">{s.label}</div>
             </div>

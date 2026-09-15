@@ -1033,9 +1033,87 @@ button {
   }
 }
 
+/* Grilla de cifras: ícono animado sobre cada número */
+.stat-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-icon-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.stat-icon-badge::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(249, 115, 22, 0.45);
+  animation: stat-hero-pulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+/* Reloj: la aguja del minuto gira (el tiempo pasa = la experiencia se acumula) */
+.stat-icon-clock .clock-hand {
+  transform-box: view-box;
+  transform-origin: 12px 12px;
+  animation: stat-clock-spin 8s linear infinite;
+}
+
+/* Pin: sube y baja suave (en camino a una visita) */
+.stat-icon-pin {
+  animation: stat-pin-bob 2.4s ease-in-out infinite;
+}
+
+/* Etiqueta: balanceo como colgando de su agujero */
+.stat-icon-tag {
+  transform-origin: 40% 40%;
+  animation: stat-tag-sway 2.8s ease-in-out infinite;
+}
+
+@keyframes stat-clock-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes stat-pin-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2.5px);
+  }
+}
+
+@keyframes stat-tag-sway {
+  0%,
+  100% {
+    transform: rotate(-7deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .stat-hero-icon,
-  .stat-hero-badge::after {
+  .stat-hero-badge::after,
+  .stat-icon-badge::after,
+  .stat-icon-clock .clock-hand,
+  .stat-icon-pin,
+  .stat-icon-tag {
     animation: none;
   }
 }
