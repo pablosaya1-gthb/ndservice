@@ -1507,6 +1507,48 @@ button {
   }
 }
 
+/* ---------- Botón "volver al inicio" (arriba del botón de WhatsApp) ---------- */
+.back-to-top {
+  position: fixed;
+  right: 23px; /* centra los 48px sobre los 58px del wa-float (right 18px) */
+  bottom: 90px; /* 18 + 58 + 14px de separación */
+  z-index: 59;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ink-2);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 10px 24px -10px rgba(14, 42, 71, 0.55);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s,
+    background-color 0.15s ease;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--ink-3);
+}
+
+.back-to-top:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
 /* ---------- Placeholder de foto ---------- */
 .media-ph {
   position: relative;
@@ -1602,6 +1644,11 @@ body {
 .wa-float {
   bottom: calc(18px + env(safe-area-inset-bottom, 0px));
   right: calc(18px + env(safe-area-inset-right, 0px));
+}
+
+.back-to-top {
+  bottom: calc(90px + env(safe-area-inset-bottom, 0px));
+  right: calc(23px + env(safe-area-inset-right, 0px));
 }
 
 .contact-line a,

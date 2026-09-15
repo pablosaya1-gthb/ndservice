@@ -1,0 +1,51 @@
+---
+// Botón "volver al inicio": flecha en la esquina inferior derecha,
+// justo arriba del botón flotante de WhatsApp. Aparece cuando la página
+// está desplazada más de 480px y vuelve suave al inicio al tocarlo.
+// Script puro, sin dependencias.
+---
+
+<button type="button" class="back-to-top" aria-label="Volver al inicio del sitio" title="Volver al inicio">
+  <svg
+    width="22"
+    height="22"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M12 19V5" />
+    <path d="m5 12 7-7 7 7" />
+  </svg>
+</button>
+
+<script>
+  const backToTop = document.querySelector<HTMLButtonElement>('.back-to-top');
+  if (backToTop) {
+    const THRESHOLD = 480; // px de scroll para que aparezca
+    let ticking = false;
+
+    const update = () => {
+      backToTop.classList.toggle('is-visible', window.scrollY > THRESHOLD);
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    update(); // estado inicial (p. ej. página cargada a mitad de scroll)
+
+    backToTop.addEventListener('click', () => {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  }
+</script>
