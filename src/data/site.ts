@@ -38,7 +38,7 @@ export const waDefault = waLink(
 
 export const stats = [
   { value: '10+', label: 'años de experiencia' },
-  { value: '1.200+', label: 'servicios realizados' },
+  { value: '1.500+', label: 'servicios realizados' },
   { value: '1.700+', label: 'visitas técnicas' },
   { value: '30+', label: 'marcas reparadas' },
 ];
@@ -262,7 +262,7 @@ export const reasons = [
   {
     icon: 'clock',
     title: 'Experiencia que se mide',
-    text: 'Más de 10 años, 1.200 servicios y 30 marcas. No somos un aviso de la guía telefónica.',
+    text: 'Más de 10 años, 1.500 servicios y 30 marcas. No somos un aviso de la guía telefónica.',
   },
   {
     icon: 'wrench',
