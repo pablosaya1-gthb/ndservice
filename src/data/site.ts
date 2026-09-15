@@ -54,7 +54,7 @@ export interface Service {
   approach: string[];
   safety?: string;
   photoLabel: string;
-  photo?: string; // foto real en public/ (relativa, ej: 'fotos/reparacion-microondas.jpg')
+  photo?: string; // foto en public/ (relativa, ej: 'fotos/reparacion-microondas.jpg'); si no hay, se muestra el marco de foto pendiente
   photoAlt?: string;
   waMessage: string;
 }
@@ -150,6 +150,8 @@ export const services: Service[] = [
     name: 'Microondas',
     icon: 'microwave',
     iconFile: 'icons/microondas.svg',
+    photo: 'fotos/reparacion-microondas.jpg',
+    photoAlt: 'Técnico midiendo con multímetro un microondas abierto a domicilio',
     short: 'No calienta · Olor a quemado · Chispazos',
     tagline:
       'Del fusible de alta tensión al magnetrón: lo diagnosticamos a fondo para que vuelva a calentar seguro.',

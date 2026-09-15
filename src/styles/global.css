@@ -1529,6 +1529,19 @@ button {
   pointer-events: none;
 }
 
+/* Variant con foto real: imagen a sangre, sin borde punteado del placeholder */
+.media-ph.has-photo::before {
+  border: none;
+}
+
+.media-ph.has-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .media-ph .icon {
   width: 64px;
   height: 64px;

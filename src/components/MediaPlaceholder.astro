@@ -1,8 +1,7 @@
 ---
-// Marco para foto real pendiente. Cuando el cliente entregue las fotos
-// se reemplaza este componente por <img src="/fotos/....jpg" alt="...">.
-// Si se pasa `iconFile` (svg a color en public/), el electrodoméstico se
-// muestra en un badge claro; si no, usa el icono lineal del sistema.
+// Marco de media por servicio. Si se pasa `photo` (foto en public/) se
+// muestra la imagen a sangre; si no, queda el marco de foto pendiente con
+// badge de icono a color (si se pasa `iconFile`) o el icono lineal.
 import { base } from '../data/base';
 
 interface Props {
@@ -11,17 +10,32 @@ interface Props {
   iconFile?: string;
   ratio?: string;
   class?: string;
+  photo?: string;
+  photoAlt?: string;
 }
 
-const { label, icon = 'wrench', iconFile = '', ratio = '4 / 3', class: className = '' } = Astro.props;
+const { label, icon = 'wrench', iconFile = '', ratio = '4 / 3', class: className = '', photo = '', photoAlt = '' } = Astro.props;
 ---
 
-<div
-  class={`media-ph ${className}`.trim()}
-  style={`aspect-ratio: ${ratio};`}
-  role="img"
-  aria-label={label}
->
+{
+  photo ? (
+    <div class={`media-ph has-photo ${className}`.trim()} style={`aspect-ratio: ${ratio};`}>
+      <img
+        src={`${base}/${photo}`}
+        alt={photoAlt || label}
+        width="1024"
+        height="768"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  ) : (
+    <div
+      class={`media-ph ${className}`.trim()}
+      style={`aspect-ratio: ${ratio};`}
+      role="img"
+      aria-label={label}
+    >
   <span class="media-ph-tag">
     <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7.5h3.2L9 5h6l1.8 2.5H20a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 18V9A1.5 1.5 0 0 1 4 7.5z"/><circle cx="12" cy="13" r="3.4"/></svg>
     Foto
@@ -52,5 +66,7 @@ const { label, icon = 'wrench', iconFile = '', ratio = '4 / 3', class: className
     )
   }
 
-  <span class="media-ph-label">{label}</span>
-</div>
+    <span class="media-ph-label">{label}</span>
+    </div>
+  )
+}
